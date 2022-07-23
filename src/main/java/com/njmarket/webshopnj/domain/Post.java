@@ -34,4 +34,11 @@ public class Post {
 
     @Enumerated(EnumType.STRING)
     private Detail detail;
+
+    public static Post createPost(Member member) {
+        Post post = new Post();
+        post.setMember(member);
+        post.setPostDate(LocalDateTime.now());
+        return post;
+    }
 }

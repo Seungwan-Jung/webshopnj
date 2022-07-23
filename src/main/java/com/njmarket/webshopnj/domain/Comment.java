@@ -25,4 +25,12 @@ public class Comment {
     private LocalDateTime commentDate;
 
     private String text;
+
+    public static Comment createOrder(Member member, Post post) {
+        Comment comment = new Comment();
+        comment.setMember(member);
+        comment.setPost(post);
+        comment.setCommentDate(LocalDateTime.now());
+        return comment;
+    }
 }
