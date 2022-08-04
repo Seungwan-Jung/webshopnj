@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+
+    <title>hello</title>
+</head>
+<body>
+
+<nav th:replace="fragments/nav :: nav"></nav>
+
+<div class="container">
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>userid</th>
+                <th>username</th>
+                <th>password</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="member : ${members}">
+                <td th:text="${member.id}"></td>
+                <td th:text="${member.userid}"></td>
+                <td th:text="${member.name}"></td>
+                <td th:text="${member.password}"></td>]
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<div th:replace="fragments/footer :: footer" ></div>
+</body>
+</html>

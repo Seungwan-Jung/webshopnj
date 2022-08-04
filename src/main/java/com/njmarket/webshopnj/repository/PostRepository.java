@@ -24,5 +24,6 @@ public class PostRepository {
 
     // TODO: 2022/07/23 findby title, content , category,detail
 
-    // TODO: 2022/07/23 findAll
+    // TODO: 2022/07/23 findAll 동적쿼리 querydsl
+
 }
