@@ -2,6 +2,8 @@ package com.njmarket.webshopnj.service;
 
 
 import com.njmarket.webshopnj.domain.Post;
+import com.njmarket.webshopnj.dto.PostDto;
+import com.njmarket.webshopnj.dto.PostSearchCondition;
 import com.njmarket.webshopnj.repository.CommentRepository;
 import com.njmarket.webshopnj.repository.MemberRepository;
 import com.njmarket.webshopnj.repository.PostRepository;
@@ -25,9 +27,12 @@ public class PostService {
         postRepository.save(post);
     }
 
-    // TODO: 2022/08/06 findPosts()
 
     public Post findOne(Long postId) {
         return postRepository.findOne(postId);
+    }
+
+    public List<PostDto> findPosts(PostSearchCondition postSearchCondition) {
+        return postRepository.findAll(postSearchCondition);
     }
 }
