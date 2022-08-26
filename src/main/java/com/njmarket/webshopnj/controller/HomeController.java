@@ -1,4 +1,4 @@
-package com.njmarket.webshopnj.web;
+package com.njmarket.webshopnj.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

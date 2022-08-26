@@ -1,7 +1,8 @@
-package com.njmarket.webshopnj.web;
+package com.njmarket.webshopnj.controller;
 
 import com.njmarket.webshopnj.domain.Member;
 import com.njmarket.webshopnj.service.MemberService;
+import com.njmarket.webshopnj.web.MemberForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -11,23 +11,44 @@
 <div class="container">
 
 <form role="form" action="/members/new" th:object="${memberForm}" method="post">
+
+    <div th:if="${#fields.hasGlobalErrors()}">
+        <p class="field-error" th:each="err : ${#fields.hasGlobalErrors()}"
+           th:text="${err}">전체 오류 메시지</p>
+
+    </div>
+
     <div>
         <label th:for="userid">userid</label>
         <input type="text" th:field="*{userid}" placeholder="name"
-        th:class="${#fields.hasErrors('userid')}? 'form-control fieldError' : 'form-control'">
-        <p th:if="${#fields.hasErrors('userid')}" th:errors="*{userid}">errors</p>
+        th:class="${#fields.hasErrors('userid')}? 'form-control fieldError' : 'form-control'" th:errorclass="field-error">
+        <div class="field-error" th:if="${#fields.hasErrors('userid')}" th:errors="*{userid}">errors</div>
+
     </div>
 
     <div>
         <label th:for="username">name</label>
-        <input type="text" th:field="*{username}" class="form-control" placeholder="name">
+        <input type="text" th:field="*{username}" class="form-control" placeholder="name" th:errorclass="field-error">
+        <div class="field-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">errors</div>
     </div>
 
     <div>
         <label th:for="password">password</label>
-        <input type="text" th:field="*{password}" class="form-control" placeholder="password">
+        <input type="text" th:field="*{password}" class="form-control" placeholder="password" th:errorclass="field-error">
+        <div class="field-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password</div>
     </div>
-    <button type="submit" class="btn btn-primary">submit</button>
+
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary">submit</button>
+        </div>
+
+        <div class="col">
+            <button class="btn btn-secondary" onclick="location.href='memberList.html'"
+                    th:onclick="|location.href='@{/}'|"
+                    type="button">cancel</button>
+        </div>
+    </div>
 </form>
 
 </div>

@@ -1,10 +1,11 @@
-package com.njmarket.webshopnj.web;
+package com.njmarket.webshopnj.controller;
 
 
 import com.njmarket.webshopnj.domain.Post;
 import com.njmarket.webshopnj.dto.PostDto;
 import com.njmarket.webshopnj.dto.PostSearchCondition;
 import com.njmarket.webshopnj.service.PostService;
+import com.njmarket.webshopnj.web.PostForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
