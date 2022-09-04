@@ -1,6 +1,7 @@
 package com.njmarket.webshopnj.controller;
 
 import com.njmarket.webshopnj.domain.Member;
+import com.njmarket.webshopnj.resolver.Login;
 import com.njmarket.webshopnj.web.SessionConst;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -16,8 +17,17 @@ import javax.servlet.http.HttpSession;
 @Slf4j
 public class HomeController {
 
+    //    @GetMapping("/")
+//    public String home(@SessionAttribute(name = SessionConst.LOGIN_MEMBER,required = false) Member loginMember,Model model){
+//        if (loginMember == null) {
+//            return "home";
+//        }
+//
+//        model.addAttribute("member", loginMember);
+//        return "logged/homeLog";
+//    }
     @GetMapping("/")
-    public String home(@SessionAttribute(name = SessionConst.LOGIN_MEMBER,required = false) Member loginMember,Model model){
+    public String homeResolver(@Login Member loginMember, Model model) {
         if (loginMember == null) {
             return "home";
         }
