@@ -6,7 +6,14 @@
 </head>
 <body>
 
-<nav th:replace="fragments/nav :: nav"></nav>
+<span th:if="${member==null}">
+    <nav th:replace="fragments/nav :: nav"></nav>
+</span>
+
+<span th:if="${member}">
+    <nav th:if="${member}" th:replace="fragments/navLog :: nav"></nav>
+</span>
+
 
 <div th:replace="fragments/footer :: footer" ></div>
 </body>

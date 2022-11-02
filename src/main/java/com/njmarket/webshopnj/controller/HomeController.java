@@ -4,6 +4,7 @@ import com.njmarket.webshopnj.domain.Member;
 import com.njmarket.webshopnj.resolver.Login;
 import com.njmarket.webshopnj.web.SessionConst;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.aop.scope.ScopedProxyUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,11 +29,12 @@ public class HomeController {
 //    }
     @GetMapping("/")
     public String homeResolver(@Login Member loginMember, Model model) {
-        if (loginMember == null) {
-            return "home";
-        }
+//        if (loginMember == null) {
+//            return "home";
+//        }
 
         model.addAttribute("member", loginMember);
-        return "logged/homeLog";
+
+        return "home";
     }
 }

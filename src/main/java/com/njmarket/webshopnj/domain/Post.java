@@ -24,6 +24,9 @@ public class Post {
     @OneToMany(mappedBy = "post")
     private List<Comment> comments = new ArrayList<>();
 
+    @OneToMany(mappedBy = "post")
+    private List<UploadFile> uploadFiles = new ArrayList<>();
+
     private LocalDateTime postDate;
 
     private String title;
@@ -35,10 +38,22 @@ public class Post {
     @Enumerated(EnumType.STRING)
     private Detail detail;
 
+
+
     public static Post createPost(Member member) {
         Post post = new Post();
         post.setMember(member);
         post.setPostDate(LocalDateTime.now());
+        return post;
+    }
+
+    public static Post createPostTest(Post post,Member member,String title, String content,Category category, Detail detail) {
+        post.setMember(member);
+        post.setPostDate(LocalDateTime.now());
+        post.setTitle(title);
+        post.setContent(content);
+        post.setCategory(category);
+        post.setDetail(detail);
         return post;
     }
 }
